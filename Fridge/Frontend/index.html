@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fridge</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="fridge">
+      <div class="leftside">
+        <div class="leftside-button-wrapper">
+          <!-- szures gomb -->
+          <select name="filtration" id="filtration" onclick="filter()"></select>
+          <!-- Rendezes gomb -->
+          <select name="order" id="order">
+            <option value='' disabled selected>Rendezes</option>
+            <option value="legregebbi">Legrégebbi</option>
+            <option value="legujabb">Legúabb</option>
+            <option value="csokkeno-ABC">Csökkenő ABC sorrend</option>
+            <option value="novekvo-ABC">Növekvő ABC sorrend</option>
+          </select>
+        </div>
+        <div class="inner-box">
+          <!-- Tarolt elemek listaja -->
+          <div class="termekek" id="termekek"></div>
+        </div>
+      </div>
+      <div class="zsanerok">
+        <div class="zsaner"></div>
+        <div class="zsaner"></div>
+      </div>
+
+      <div class="rightside">
+        <div class="kategoria_hozzaadas">
+          <h1>Termek hozzaadas</h1>
+        </div>
+        <div class="inner-box">
+          <!-- kategoriak -->
+          <div class="kategoriak" id="kategoriak"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="backdrop" style="display: none">
+      <div class="modal">
+        <h1 id="categoryTitle">Uj termek hozzaadasa</h1>
+        <div class="input_wrapper">
+          <label for="productName">Kategoria:</label>
+          <h3 id="selected_category">Kivalasztott kategoria neve</h3>
+        </div>
+        <div class="input_wrapper">
+          <label for="productName">Termék neve:</label>
+          <input type="text" id="productName" /><br /><br />
+        </div>
+        <div class="input_wrapper">
+          <label for="date">Dátum:</label>
+          <input type="date" id="date" /><br /><br />
+        </div>
+        <div class="input_wrapper">
+          <label for="comment">Megjegyzés:</label>
+          <textarea id="comment" rows="4" cols="50"></textarea><br /><br />
+        </div>
+        <div class="button_wrapper">
+          <button onclick="closeModal()">Close</button>
+          <button onclick="sendProductData()">Letrehozas</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="fridge.js"></script>
+  </body>
+</html>
