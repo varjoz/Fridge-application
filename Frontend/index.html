@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fridge</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="fridge">
+      <div class="leftside">
+        <div class="leftside-button-wrapper">
+          <!-- szures gomb -->
+          <select id="filterby" onchange="loadProducts()"></select>
+          <label for="" style="margin-left: 5px">
+            lejartak elrejtese
+            <input type="checkbox" id="expired" onchange="loadProducts()" />
+          </label>
+          <!-- Rendezes gomb -->
+          <select id="orderby" onchange="loadProducts()">
+            <option value="">Alapertelmezett</option>
+            <option value="name">Nev szerint</option>
+            <option value="expiry">Lejarat szerint</option>
+          </select>
+        </div>
+        <div class="inner-box">
+          <!-- Tarolt elemek listaja -->
+          <div class="termekek" id="termekek"></div>
+        </div>
+      </div>
+      <div class="zsanerok">
+        <div class="zsaner"></div>
+        <div class="zsaner"></div>
+      </div>
+
+      <div class="rightside">
+        <div class="kategoria_hozzaadas">
+          <h1>Termek hozzaadas</h1>
+        </div>
+        <div class="inner-box">
+          <!-- kategoriak -->
+          <div class="categories" id="categories"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="hidden">
+      <button id="closeModal" onClick="closeModal()">X</button>
+      <div class="flex">
+          <div id="modalCategory"></div>
+          <div>
+              <input type="text" id="id" class="hidden"/>
+              <input type="text" id="category" class="hidden"/>
+              <label for="">
+                  <span>
+                      Nev
+                  </span>
+                  <input type="text" id="name">
+              </label><br>
+              <label for="">
+                  <span>
+                      Lejarati ido
+                  </span>
+                  <input type="date" id="expiry">
+              </label><br>
+              <label for="">
+                  <span>
+                      Megjegyzes
+                  </span>
+                  <input type="text" id="note">
+              </label>
+              <button id="addbutton" onclick="addProduct()">Termek hozzaadasa</button>
+              <button id="editbutton" onclick="editProduct()">Termek szerkesztese</button>
+          </div>
+      </div>
+  </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
